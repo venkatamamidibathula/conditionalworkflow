@@ -9,9 +9,17 @@ jobs:
   build:
     strategy:
       matrix:
-        node-version: [14, 16, 18]
+        node-version: [12, 14, 16]
         operating-system: [ubuntu-latest, windows-latest, macos-latest]
     runs-on: ${{ matrix.operating-system }}
+    include:
+      - node-version: 14
+        operating-system: windows-latest
+      - node-version: 16
+        operating-system: macos-latest
+    exclude:
+      - node-version: 12
+        operating-system: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
