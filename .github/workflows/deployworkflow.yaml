@@ -1,0 +1,12 @@
+name: Deploy Reusable Workflow
+on:
+  workflow_call:
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Run deployment script
+        run: |
+          echo "Deploying application..."
