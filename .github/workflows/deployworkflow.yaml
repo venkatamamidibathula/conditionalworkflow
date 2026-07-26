@@ -8,4 +8,4 @@ jobs:
         uses: actions/checkout@v3
       - name: Run deployment script
         run: |
-          echo "Deploying application..."
+          echo "Deploying application from reusable workflow....."
