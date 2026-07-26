@@ -1,11 +1,22 @@
 name: Deploy Reusable Workflow
-on: workflow_call
+on: 
+  workflow_call:
+  inputs:
+    artifact-name:
+      description: 'Name of the artifact to deploy'
+      required: false
+      default: 'dist'
+      type: string
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-      - name: Run deployment script
-        run: |
-          echo "Deploying application from reusable workflow....."
+      - name: Get Code
+        uses: actions/download-artifact@v4
+        with:
+          name: ${{ inputs.artifact-name }}
+      - name: Output contents
+        run: ls
+      - name: Output information
+        run: echo "Artifact name: ${{ inputs.artifact-name }}"
