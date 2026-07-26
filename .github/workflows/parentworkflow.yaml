@@ -23,5 +23,3 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     uses: ./.github/workflows/deployworkflow.yaml
-    with:
-      artifact-name: dist-files
