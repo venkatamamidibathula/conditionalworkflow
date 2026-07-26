@@ -1,12 +1,12 @@
 name: Deploy Reusable Workflow
 on: 
   workflow_call:
-  inputs:
-    artifact-name:
-      description: 'Name of the artifact to deploy'
-      required: false
-      default: 'dist'
-      type: string
+    inputs:
+      artifact-name:
+        description: 'Name of the artifact to deploy'
+        required: false
+        default: 'dist'
+        type: string
 
 jobs:
   deploy:
